@@ -1,0 +1,1 @@
+export { DegreeType } from "./degreeType";
