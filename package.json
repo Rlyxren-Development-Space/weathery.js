@@ -1,0 +1,33 @@
+{
+  "name": "weathery.js",
+  "version": "1.0.0",
+  "description": "An Advanced module to get weather in full details",
+  "main": "weathery/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rlyxren-Development-Space/weathery.js.git"
+  },
+  "keywords": [
+    "Weather",
+    "Backend",
+    "Frontend",
+    "Node",
+    "API"
+  ],
+  "author": "Mohtasim Alam Sohom, Sajidur Rahman Tahsin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Rlyxren-Development-Space/weathery.js/issues"
+  },
+  "homepage": "https://github.com/Rlyxren-Development-Space/weathery.js#readme",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "es6-promise": "^4.2.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.2.5"
+  }
+}
