@@ -54,5 +54,14 @@ async function f() {
   console.log("Wind Direction", ":", directionMap[w.current.wind_dir]);
   console.log("Wind KPH", ":", w.current.wind_kph);
   console.log("WIND MPH", ":", w.current.wind_mph);
+
+  console.log("Country", ":", w.location.country);
+  console.log("Latitude", ":", w.location.lat);
+  console.log("Longitude", ":", w.location.lon);
+  console.log("Localtime", ":", w.location.localtime);
+  console.log("Localtime Epoch", ":", w.location.localtime_epoch);
+  console.log("City Name", ":", w.location.name);
+  console.log("Region", ":", w.location.region || null);
+  console.log("Timezone ID", ":", w.location.tz_id);
 }
 f();
