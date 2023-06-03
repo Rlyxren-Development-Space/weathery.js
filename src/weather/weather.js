@@ -1,5 +1,7 @@
 "use strict";
 import axios from "axios";
+import { WeatheryRangeError, WeatheryTypeError } from "./errors";
+import { ErrorMessages } from "./utils";
 if (typeof Promise === "undefined" || Promise == null) {
   const { Promise } = require("es6-promise");
 }
@@ -18,6 +20,32 @@ if (typeof Promise === "undefined" || Promise == null) {
  * @returns {WeatherReturn} weather
  */
 const w = (location, degreeType) => {
+  if (typeof location !== "string") {
+    ErrorMessages.typeError.message = ErrorMessages.typeError.message.replace(
+      /{ex}/g,
+      '"string"'
+    );
+    ErrorMessages.typeError.message = ErrorMessages.typeError.message.replace(
+      /{re}/g,
+      `"${typeof location}"`
+    );
+    throw new WeatheryTypeError(ErrorMessages.typeError.message);
+  }
+  if (degreeType !== "C" && degreeType !== "F") {
+    ErrorMessages.rangeError.message = ErrorMessages.rangeError.message.replace(
+      /{ra}/g,
+      degreeType
+    );
+    ErrorMessages.rangeError.message = ErrorMessages.rangeError.message.replace(
+      /{rae}/g,
+      "C or F"
+    );
+    throw new WeatheryRangeError(
+      ErrorMessages.rangeError.status,
+      ErrorMessages.rangeError.message
+    );
+  }
+
   const url = `https://luminabot.xyz/api/json/weather?location=${location}&degreetype=${degreeType}`;
 
   return new Promise(async (resolve, reject) => {
